@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linage — Briefing do Produto</title>
+  <meta name="description" content="SaaS que gera posts prontos para publicar no LinkedIn, voltado exclusivamente para profissionais do mercado financeiro brasileiro." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Three.js Background -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Initial Loader -->
+  <div class="loader">
+    <div class="loader-text">
+      <div class="char">L</div>
+      <div class="char">I</div>
+      <div class="char">N</div>
+      <div class="char">A</div>
+      <div class="char">G</div>
+      <div class="char">E</div>
+    </div>
+  </div>
+
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+      
+      <!-- Hero Section -->
+      <section class="section hero" id="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Notícias de hoje,<br/><span>post de amanhã</span></h1>
+            <p class="hero-subtitle">SaaS que gera posts prontos para o LinkedIn, focado exclusivamente no mercado financeiro brasileiro.</p>
+            <div class="hero-cta">
+              <button class="btn btn-primary magnetic" data-magnetic>Começar com 2 posts grátis</button>
+              <span class="cta-note">sem cartão de crédito</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem / Solution Section -->
+      <section class="section problem-solution" id="problem">
+        <div class="container">
+          <div class="ps-grid">
+            <div class="ps-card ps-manual">
+              <div class="ps-label">Manual</div>
+              <h2 class="ps-value">45–90 <span class="small">min</span></h2>
+              <p>O tempo médio para criar um post de qualidade manualmente, pesquisando e redigindo.</p>
+            </div>
+            <div class="ps-card ps-linage">
+              <div class="ps-label">Com Linage</div>
+              <h2 class="ps-value">&lt; 1 <span class="small">min</span></h2>
+              <p>Post completo gerado pela IA com vocabulário técnico do mercado financeiro, hashtags e capa visual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personas Section -->
+      <section class="section personas" id="personas">
+        <div class="container">
+          <h2 class="section-title">Para quem é</h2>
+          <div class="personas-grid">
+            <div class="persona-card">
+              <h3>Analista</h3>
+              <p>Linguagem técnica, dados, público institucional.</p>
+            </div>
+            <div class="persona-card">
+              <h3>Educador</h3>
+              <p>Didático, acessível, investidor pessoa física.</p>
+            </div>
+            <div class="persona-card">
+              <h3>Gestor</h3>
+              <p>Sofisticado, público de alta renda.</p>
+            </div>
+            <div class="persona-card">
+              <h3>Executivo</h3>
+              <p>Estratégico, liderança, tom C-level.</p>
+            </div>
+            <div class="persona-card">
+              <h3>Fundador</h3>
+              <p>Inovação, ecossistema de startups.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it Works -->
+      <section class="section how-it-works" id="how">
+        <div class="container">
+          <h2 class="section-title">Como funciona</h2>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-num">01</div>
+              <h3>Escolhe sua persona</h3>
+              <p>Feito uma única vez no onboarding.</p>
+            </div>
+            <div class="step-item">
+              <div class="step-num">02</div>
+              <h3>Informa o tema</h3>
+              <p>Ou escolhe uma notícia do dia entre as sugestões em tempo real.</p>
+            </div>
+            <div class="step-item">
+              <div class="step-num">03</div>
+              <h3>Recebe o post</h3>
+              <p>Gerado com texto, hashtags e capa visual. Edite se quiser, publique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Differentiators -->
+      <section class="section technical" id="technical">
+        <div class="container">
+          <h2 class="section-title">Escrito na sua voz,<br/>no vocabulário do mercado</h2>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <h4>Claude Sonnet</h4>
+              <p>Modelo de linguagem de ponta para escrita persuasiva sem alucinações.</p>
+            </div>
+            <div class="tech-item">
+              <h4>Notícias em Tempo Real</h4>
+              <p>Pesquisa Selic, Fed, câmbio, B3, commodities a cada geração.</p>
+            </div>
+            <div class="tech-item">
+              <h4>Pesquisa Aprofundada</h4>
+              <p>A IA analisa tudo disponível sobre o seu tema específico antes de escrever.</p>
+            </div>
+            <div class="tech-item">
+              <h4>Capas por IA (Flux Pro)</h4>
+              <p>Imagem de fundo, tipografia e identidade visual criados automaticamente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section class="section pricing" id="pricing">
+        <div class="container">
+          <h2 class="section-title">Planos</h2>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <div class="plan-name">Trial</div>
+              <div class="plan-price">Grátis</div>
+              <ul class="plan-features">
+                <li>2 posts grátis</li>
+                <li>Sem compromisso</li>
+              </ul>
+            </div>
+            <div class="price-card highlighted">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">R$149<span>/mês</span></div>
+              <ul class="plan-features">
+                <li>15 posts por mês</li>
+                <li>Cancele a qualquer momento</li>
+              </ul>
+              <button class="btn btn-outline">Assinar Starter</button>
+            </div>
+            <div class="price-card">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">R$249<span>/mês</span></div>
+              <ul class="plan-features">
+                <li>35 posts por mês</li>
+                <li>Cancele a qualquer momento</li>
+              </ul>
+              <button class="btn btn-outline">Assinar Pro</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Objections -->
+      <section class="section objections" id="objections">
+        <div class="container">
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">"A IA vai soar robótica?"</div>
+              <div class="accordion-content">As personas têm tom de voz específico; o resultado parece escrito por um humano especialista no mercado financeiro.</div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">"Vou depender de IA para meu conteúdo?"</div>
+              <div class="accordion-content">Você edita antes de publicar — a IA é o seu ponto de partida estratégico, não o fim do processo.</div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">"Não é caro?"</div>
+              <div class="accordion-content">Compare com contratar um redator especializado em finanças, que cobra entre R$500 e R$2.000 por mês.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer CTA -->
+      <section class="section footer-cta" id="footer">
+        <div class="container">
+          <h2 class="cta-title">Quem publica no LinkedIn cresce 3x mais rápido em autoridade.</h2>
+          <button class="btn btn-primary magnetic" data-magnetic>Começar com 2 posts grátis</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
