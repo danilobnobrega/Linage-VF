@@ -131,7 +131,7 @@ function renderThree() {
   
   // Continuously flow the wave offset based on time and scroll position.
   // This creates an interactive flow: scrolling naturally speeds up the wave propagation.
-  const waveOffset = elapsedTime * 1.2 + currentScroll * 0.004
+  const waveOffset = elapsedTime * 0.6 + currentScroll * 0.004
   
   // Update grid vertices dynamically for a perfectly fluid, infinite flowing wave.
   // This completely eliminates modulo jumps, wrapping seams, or "video clip cuts".
