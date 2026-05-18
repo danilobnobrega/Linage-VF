@@ -106,8 +106,54 @@ const lenis = new Lenis({
   infinite: false,
 })
 
-// Sync ScrollTrigger with Lenis
-lenis.on('scroll', ScrollTrigger.update)
+// Sync ScrollTrigger and Navbar Toggle/Autohide with Lenis
+const navbar = document.querySelector('.navbar')
+let lastScrollY = 0
+
+lenis.on('scroll', (e) => {
+  ScrollTrigger.update()
+  
+  const currentScroll = e.scroll
+  
+  // Toggle scrolled transparent glassmorphic state
+  if (currentScroll > 50) {
+    navbar.classList.add('scrolled')
+  } else {
+    navbar.classList.remove('scrolled')
+  }
+  
+  // Ultra-responsive Autohide: disappears on any subtle scroll down, reappears on scroll up
+  const scrollDelta = currentScroll - lastScrollY
+  
+  if (currentScroll <= 0) {
+    // Only force show at the absolute top (0 or negative pull)
+    navbar.classList.remove('hidden')
+  } else if (scrollDelta > 0) {
+    // ALWAYS hide immediately on any scroll down (even inside Hero!)
+    navbar.classList.add('hidden')
+  } else if (scrollDelta < 0) {
+    // Reappear immediately on scroll up
+    navbar.classList.remove('hidden')
+  }
+  
+  lastScrollY = currentScroll
+})
+
+// Smooth Section Scrolling
+document.querySelectorAll('.nav-link, .nav-logo').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault()
+    const targetId = link.getAttribute('href')
+    const targetSection = document.querySelector(targetId)
+    if (targetSection) {
+      lenis.scrollTo(targetSection, {
+        offset: -80, // Offset for sticky navbar height
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      })
+    }
+  })
+})
 
 // Use GSAP's ticker to drive Lenis (more robust, avoids double loops)
 gsap.ticker.add((time) => {
