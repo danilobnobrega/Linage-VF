@@ -155,43 +155,9 @@ body {
   will-change: opacity;
 }
 
-/* Word-by-Word Geometric Block Collapse (Muros Individuais Caindo) */
+/* Elegant Paragraph Fade-In Entrance */
 [data-fade-text] {
   opacity: 0;
-  will-change: opacity;
-}
-
-[data-fade-text].split-active {
-  opacity: 1;
-}
-
-.word-wrap {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: visible; /* Let blocks tumble out visually! */
-  padding: 1px 3px;  /* Spacing to frame the geometric blocks nicely */
-  margin: -1px 0;
-}
-
-.word-text {
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  will-change: opacity;
-  display: inline-block;
-}
-
-.word-block {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transform-origin: bottom center;
-  pointer-events: none;
   will-change: transform, opacity;
 }
 
@@ -433,7 +399,7 @@ strong {
 }
 
 .result-card.highlighted p {
-  color: #fff;
+  color: var(--text-color-muted);
   font-weight: 400;
   font-size: clamp(1.15rem, 2vw, 1.35rem);
 }
