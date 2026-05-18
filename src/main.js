@@ -282,17 +282,18 @@ tlLoader.to('.loader-text .char', {
   duration: 1,
   ease: "power4.inOut"
 })
-.call(() => {
-  // Kinetic signal-to-noise materialization on Hero title!
-  const heroTitle = document.querySelector('.hero-title')
-  if (heroTitle) decryptText(heroTitle)
-})
+.from('.hero-title', {
+  y: 30,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power4.out"
+}, "-=0.5")
 .from('.hero-cta', {
   y: 40,
   opacity: 0,
   duration: 1.2,
   ease: "power4.out"
-}, "-=0.5")
+}, "-=0.8")
 
 
 // Scroll-Linked Text Decryption Trigger (Strategic Titles)
