@@ -234,6 +234,10 @@ strong {
   letter-spacing: -0.02em;
 }
 
+.hero-title p {
+  margin: 0;
+}
+
 .hero-title span {
   font-style: italic;
   font-weight: 400;
