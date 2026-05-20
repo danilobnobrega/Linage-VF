@@ -327,19 +327,24 @@ document.querySelectorAll('[data-fade-text]').forEach(el => {
 })
 
 // Holographic Scanline Card Sweeping (Elite Awwwards Materialization)
-const animateCardGroup = (gridSelector, cardSelector) => {
+const animateCardGroup = (gridSelector, cardSelector, columns = 2) => {
   const cards = document.querySelectorAll(cardSelector)
   if (cards.length === 0) return
   
-  ScrollTrigger.create({
-    trigger: gridSelector,
-    start: "top 80%",
-    onEnter: () => {
-      cards.forEach((card, index) => {
-        const scanline = card.querySelector('.scanline')
+  cards.forEach((card, index) => {
+    const scanline = card.querySelector('.scanline')
+    
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 85%", // Triggers when the top of the individual card reaches 85% of viewport
+      onEnter: () => {
+        // Calculate delay based on horizontal column index to preserve elegant staggered entry
+        // only for side-by-side elements entering the viewport at the same time on desktop.
+        const activeCols = window.innerWidth > 768 ? columns : 1;
+        const colIndex = index % activeCols;
+        const delay = colIndex * 0.15;
         
-        // Staggered reveal for cards
-        gsap.timeline({ delay: index * 0.2 })
+        gsap.timeline({ delay: delay })
           // 1. Reveal scanline and start sweeping down
           .fromTo(scanline, 
             { top: "0%", opacity: 0 },
@@ -358,15 +363,15 @@ const animateCardGroup = (gridSelector, cardSelector) => {
             "<"
           )
           .to(scanline, { opacity: 0, duration: 0.2 })
-      })
-    },
-    once: true
+      },
+      once: true
+    })
   })
 }
 
-animateCardGroup('.features-grid', '.feature-card')
-animateCardGroup('.results-grid', '.result-card')
-animateCardGroup('.pricing-grid', '.price-card')
+animateCardGroup('.features-grid', '.feature-card', 2)
+animateCardGroup('.results-grid', '.result-card', 3)
+animateCardGroup('.pricing-grid', '.price-card', 3)
 
 // Vision Paragraph (Non-split elements)
 gsap.from('.vision-body', {
