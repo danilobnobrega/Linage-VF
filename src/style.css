@@ -10,7 +10,8 @@
   --glass-border: rgba(255, 255, 255, 0.03);
 
   --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
@@ -86,17 +87,11 @@ body {
 }
 
 .loader-text {
-  display: flex;
   font-family: var(--font-heading);
   font-size: clamp(3.5rem, 12vw, 9rem);
   font-weight: 300;
   letter-spacing: 0.15em;
   color: #fff;
-  overflow: hidden;
-}
-
-.loader-text .char {
-  transform: translateY(100%);
   opacity: 0;
 }
 
@@ -209,6 +204,7 @@ strong {
 .cta-note {
   display: block;
   margin-top: 1.3rem;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-color-muted);
   text-transform: uppercase;
@@ -230,8 +226,13 @@ strong {
   line-height: 1.15;
   margin-bottom: 6.5rem;
   color: #fff;
-  max-width: 100%;
+  width: 100%;
   letter-spacing: -0.02em;
+}
+
+.hero-content > p {
+  width: 100%;
+  text-align: center;
 }
 
 .hero-title p {
@@ -249,6 +250,19 @@ strong {
 .hero-title span {
   font-style: italic;
   font-weight: 400;
+}
+
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* About Section [O Linage] */
@@ -277,7 +291,7 @@ strong {
 }
 
 .about-para {
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-size: 1.25rem;
   line-height: 1.65;
   color: var(--text-color-muted);
 }
@@ -299,7 +313,7 @@ strong {
 }
 
 .features-intro-text {
-  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-size: 1.25rem;
   line-height: 1.65;
   color: var(--text-color-muted);
 }
@@ -327,7 +341,7 @@ strong {
 }
 
 .feature-num {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--accent-color);
   font-weight: 600;
@@ -413,7 +427,7 @@ strong {
 .result-card.highlighted p {
   color: var(--text-color-muted);
   font-weight: 400;
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
 }
 
 /* Vision Section */
@@ -454,7 +468,7 @@ strong {
 }
 
 .vision-body {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   line-height: 1.7;
   color: var(--text-color-muted);
 }
@@ -472,7 +486,7 @@ strong {
 }
 
 .social-proof-body {
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-size: 1.25rem;
   line-height: 1.65;
   color: var(--text-color-muted);
 }
@@ -523,7 +537,7 @@ strong {
 }
 
 .plan-name {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -775,6 +789,22 @@ strong {
 /* Responsive Navbar Styling */
 @media (max-width: 991px) {
   .nav-links {
+    display: none;
+  }
+
+  .nav-btn-comecar {
+    display: none;
+  }
+
+  .hero-title p:first-child {
+    padding-left: 1.5rem;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor,
+  .cursor-follower {
     display: none;
   }
 }
