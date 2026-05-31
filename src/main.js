@@ -441,7 +441,7 @@ gsap.from('.signature > *', {
 })
 
 // --- CTA Links ---
-const APP_URL = 'https://app.linage.app'
+const APP_URL = 'https://dashboard.linage.app'
 
 document.querySelector('.nav-btn-entrar')?.addEventListener('click', () => {
   window.location.href = `${APP_URL}/sign-in`
