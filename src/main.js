@@ -439,3 +439,22 @@ gsap.from('.signature > *', {
   stagger: 0.15,
   ease: "power3.out"
 })
+
+// --- CTA Links ---
+const APP_URL = 'https://app.linage.app'
+
+document.querySelector('.nav-btn-entrar')?.addEventListener('click', () => {
+  window.location.href = `${APP_URL}/sign-in`
+})
+
+document.querySelectorAll('.nav-btn-comecar, .hero-cta .btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.location.href = `${APP_URL}/sign-up`
+  })
+})
+
+document.querySelectorAll('.price-card .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.location.href = `${APP_URL}/sign-up`
+  })
+})
