@@ -440,24 +440,20 @@ gsap.from('.signature > *', {
   ease: "power3.out"
 })
 
-// --- Billing Toggle ---
-const billingBtns = document.querySelectorAll('.billing-toggle-btn')
-const priceEls = document.querySelectorAll('.plan-price[data-monthly]')
-const annualTotals = document.querySelectorAll('.plan-annual-total')
+// --- Billing Toggle (per card) ---
+document.querySelectorAll('.price-card').forEach(card => {
+  const btns = card.querySelectorAll('.billing-toggle-btn')
+  const priceEl = card.querySelector('.plan-price[data-monthly]')
+  const annualTotal = card.querySelector('.plan-annual-total')
 
-billingBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    billingBtns.forEach(b => b.classList.remove('active'))
-    btn.classList.add('active')
-    const billing = btn.dataset.billing
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+      const billing = btn.dataset.billing
 
-    priceEls.forEach(el => {
-      const price = el.dataset[billing]
-      el.childNodes[0].textContent = price
-    })
-
-    annualTotals.forEach(el => {
-      el.style.display = billing === 'annual' ? 'block' : 'none'
+      if (priceEl) priceEl.childNodes[0].textContent = priceEl.dataset[billing]
+      if (annualTotal) annualTotal.style.display = billing === 'annual' ? 'block' : 'none'
     })
   })
 })

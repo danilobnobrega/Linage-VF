@@ -509,16 +509,13 @@ strong {
 .billing-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 5rem;
-  background: var(--glass-bg);
+  gap: 4px;
+  margin-bottom: 2rem;
+  background: rgba(255,255,255,0.04);
   border: 1px solid var(--glass-border);
   border-radius: 100px;
-  padding: 5px;
+  padding: 4px;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .billing-toggle-btn {
