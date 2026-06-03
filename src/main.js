@@ -440,6 +440,28 @@ gsap.from('.signature > *', {
   ease: "power3.out"
 })
 
+// --- Billing Toggle ---
+const billingBtns = document.querySelectorAll('.billing-toggle-btn')
+const priceEls = document.querySelectorAll('.plan-price[data-monthly]')
+const annualTotals = document.querySelectorAll('.plan-annual-total')
+
+billingBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    billingBtns.forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+    const billing = btn.dataset.billing
+
+    priceEls.forEach(el => {
+      const price = el.dataset[billing]
+      el.childNodes[0].textContent = price
+    })
+
+    annualTotals.forEach(el => {
+      el.style.display = billing === 'annual' ? 'block' : 'none'
+    })
+  })
+})
+
 // --- CTA Links ---
 const APP_URL = 'https://dashboard.linage.app'
 
