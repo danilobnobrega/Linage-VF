@@ -413,7 +413,7 @@ const animateCardGroup = (gridSelector, cardSelector, columns = 2) => {
 
 animateCardGroup('.features-grid', '.feature-card', 2)
 animateCardGroup('.results-grid', '.result-card', 3)
-animateCardGroup('.pricing-grid', '.price-card', 3)
+animateCardGroup('.pricing-grid', '.price-card', 2)
 
 // Vision Paragraph (Non-split elements)
 gsap.from('.vision-body', {
