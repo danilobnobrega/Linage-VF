@@ -473,6 +473,8 @@ document.querySelectorAll('.nav-btn-comecar, .hero-cta .btn-primary').forEach(bt
 
 document.querySelectorAll('.price-card .btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    const planName = btn.closest('.price-card')?.querySelector('.plan-name')?.textContent?.toLowerCase().trim()
+    if (planName) localStorage.setItem('linage_intended_plan', planName)
     window.location.href = `${APP_URL}/sign-up`
   })
 })
