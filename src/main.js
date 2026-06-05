@@ -473,6 +473,8 @@ document.querySelectorAll('.nav-btn-comecar, .hero-cta .btn-primary').forEach(bt
 
 document.querySelectorAll('.price-card .btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    window.location.href = `${APP_URL}/sign-up?redirect_url=/credits`
+    const planName = btn.closest('.price-card')?.querySelector('.plan-name')?.textContent?.toLowerCase().trim()
+    const redirectUrl = planName ? `/checkout?plan=${planName}` : '/credits'
+    window.location.href = `${APP_URL}/sign-up?redirect_url=${encodeURIComponent(redirectUrl)}`
   })
 })
