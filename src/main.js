@@ -162,22 +162,24 @@ gsap.ticker.add(() => {
   gsap.set(follower, { x: followerX, y: followerY })
 })
 
-// Magnetic buttons hover
-document.querySelectorAll('.magnetic').forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect()
-    const x = e.clientX - rect.left - rect.width / 2
-    const y = e.clientY - rect.top - rect.height / 2
-    
-    gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.3, ease: "power2.out" })
-    gsap.to(follower, { width: 80, height: 80, borderColor: 'rgba(0, 255, 136, 0.5)' })
+// Magnetic buttons hover (desktop only)
+if (!isTouch) {
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+
+      gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.3, ease: "power2.out" })
+      gsap.to(follower, { width: 80, height: 80, borderColor: 'rgba(0, 255, 136, 0.5)' })
+    })
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" })
+      gsap.to(follower, { width: 40, height: 40, borderColor: 'rgba(255, 255, 255, 0.5)' })
+    })
   })
-  
-  btn.addEventListener('mouseleave', () => {
-    gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" })
-    gsap.to(follower, { width: 40, height: 40, borderColor: 'rgba(255, 255, 255, 0.5)' })
-  })
-})
+}
 
 // --- Three.js WebGL Background ---
 const canvas = document.querySelector('#webgl-canvas')
