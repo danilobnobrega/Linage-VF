@@ -478,3 +478,7 @@ document.querySelectorAll('.price-card .btn').forEach(btn => {
     window.location.href = `${APP_URL}/sign-up?redirect_url=${encodeURIComponent(redirectUrl)}`
   })
 })
+
+document.querySelector('.pricing-trial .btn')?.addEventListener('click', () => {
+  window.location.href = `${APP_URL}/sign-up`
+})
