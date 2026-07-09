@@ -287,9 +287,14 @@ function decryptLoader(onComplete) {
   gsap.to(el, { opacity: 1, duration: 0.3, ease: "power2.out", delay: 0.2 })
 
   setTimeout(() => {
-    const interval = setInterval(() => {
+    const duration = 1050 // same total duration as before (30 frames * 35ms)
+    let startTime = null
+
+    function tick(timestamp) {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+
       el.innerHTML = letters.map((char, index) => {
-        const progress = frame / totalFrames
         const charIndex = index / letters.length
         if (progress > charIndex) {
           return char
@@ -301,13 +306,15 @@ function decryptLoader(onComplete) {
         }
       }).join("")
 
-      if (frame >= totalFrames) {
-        clearInterval(interval)
+      if (progress < 1) {
+        requestAnimationFrame(tick)
+      } else {
         el.innerText = originalText
         if (onComplete) onComplete()
       }
-      frame++
-    }, 35)
+    }
+
+    requestAnimationFrame(tick)
   }, 200)
 }
 
