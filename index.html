@@ -35,7 +35,7 @@
   </script>
 
 </head>
-<body>
+<body class="coming-soon-mode">
   <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
@@ -49,21 +49,21 @@
   </div>
 
   <!-- Navigation Header -->
-  <header class="navbar">
+  <header class="navbar cs-hide">
     <a href="#hero" class="nav-logo">
       <svg width="18" height="17" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="currentColor" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/>
       </svg>
       LINAGE
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links cs-hide">
       <a href="#about" class="nav-link">Sobre Mim</a>
       <a href="#features" class="nav-link">Funcionalidades</a>
       <a href="#results" class="nav-link">Resultado</a>
       <a href="#vision" class="nav-link">Visão</a>
       <a href="#pricing" class="nav-link">Planos</a>
     </nav>
-    <div class="nav-actions">
+    <div class="nav-actions cs-hide">
       <button class="nav-btn-entrar">Entrar</button>
       <button class="nav-btn-comecar magnetic" data-magnetic>Começar</button>
     </div>
@@ -75,21 +75,28 @@
       <!-- Hero Section -->
       <section class="section hero" id="hero">
         <div class="container">
-          <div class="hero-content">
-            <div class="hero-title">
-              <p>Prazer,</p>
-              <p><span>Linage</span></p>
+          <div class="coming-soon-content">
+            <div class="coming-soon-logo">
+              <svg width="28" height="27" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/>
+              </svg>
+              Linage
             </div>
-            <div class="hero-cta">
-              <button class="btn btn-primary magnetic" data-magnetic>Começar teste grátis</button>
-              <span class="cta-note">3 posts grátis • sem compromisso</span>
-            </div>
+            <h1 class="coming-soon-title">Estou trabalhando em mim mesmo.</h1>
+            <p class="coming-soon-text">Até aqui eu só escrevia o post que você pedia — você mandava o tema, eu devolvia o texto, ficávamos por aí. Agora vou cuidar de tudo, do mapeamento até a publicação: entender sua especialidade e quem você quer atrair, definir seu posicionamento, montar o calendário do mês com o formato e objetivo de cada post, escrever e publicar no horário certo.</p>
+            <form class="coming-soon-form" id="waitlist-form">
+              <input type="email" required placeholder="Seu melhor e-mail" class="coming-soon-input" id="waitlist-email" autocomplete="email" />
+              <button type="submit" class="btn btn-primary magnetic" data-magnetic>Quero minha vaga</button>
+              <span class="cta-note" id="waitlist-note">7 dias grátis. 40% off no primeiro ano pra quem entrar agora.</span>
+              <span class="cta-note" id="waitlist-confirmation" style="display:none; color: var(--accent-color);">Feito! Sua vaga está garantida.</span>
+              <span class="cta-note" id="waitlist-error" style="display:none; color: #ff4d6a;">Algo deu errado. Tenta de novo?</span>
+            </form>
           </div>
         </div>
       </section>
 
       <!-- O Linage (About) Section -->
-      <section class="section about" id="about">
+      <section class="section about cs-hide" id="about">
         <div class="container">
           <h2 class="section-title" data-split-text>Sobre Mim</h2>
           <div class="about-content">
@@ -104,7 +111,7 @@
       </section>
 
       <!-- Funcionalidades Section -->
-      <section class="section features" id="features">
+      <section class="section features cs-hide" id="features">
         <div class="container">
           <h2 class="section-title" data-split-text>Funcionalidades</h2>
           <div class="features-intro">
@@ -168,7 +175,7 @@
       </section>
 
       <!-- Resultado Section -->
-      <section class="section results" id="results">
+      <section class="section results cs-hide" id="results">
         <div class="container">
           <h2 class="section-title" data-split-text>Resultado</h2>
           <div class="results-grid">
@@ -186,7 +193,7 @@
       </section>
 
       <!-- Visão Section -->
-      <section class="section vision" id="vision">
+      <section class="section vision cs-hide" id="vision">
         <div class="container">
           <h2 class="section-title" data-split-text>Visão</h2>
           <div class="vision-content">
@@ -201,7 +208,7 @@
       </section>
 
       <!-- Prova Social Section -->
-      <section class="section social-proof" id="social-proof">
+      <section class="section social-proof cs-hide" id="social-proof">
         <div class="container">
           <h2 class="section-title" data-split-text>A (Não) Prova Social</h2>
           <div class="social-proof-content">
@@ -219,7 +226,7 @@
       </section>
 
       <!-- Planos (Pricing) Section -->
-      <section class="section pricing" id="pricing">
+      <section class="section pricing cs-hide" id="pricing">
         <div class="container">
           <div class="pricing-header">
             <h2 class="section-title" data-split-text>Planos</h2>
@@ -269,7 +276,7 @@
       </section>
 
       <!-- Footer Manifesto Section -->
-      <footer class="section footer-manifesto" id="footer">
+      <footer class="section footer-manifesto cs-hide" id="footer">
         <div class="container">
           <div class="manifesto-content">
             <p class="manifesto-text" data-fade-text>

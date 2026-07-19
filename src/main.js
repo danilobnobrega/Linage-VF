@@ -6,6 +6,38 @@ import * as THREE from 'three'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// --- Waitlist form (coming soon page) ---
+const waitlistForm = document.getElementById('waitlist-form')
+if (waitlistForm) {
+  waitlistForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const emailInput = document.getElementById('waitlist-email')
+    const note = document.getElementById('waitlist-note')
+    const confirmation = document.getElementById('waitlist-confirmation')
+    const errorEl = document.getElementById('waitlist-error')
+    const button = waitlistForm.querySelector('button[type="submit"]')
+
+    errorEl.style.display = 'none'
+    button.disabled = true
+
+    try {
+      const res = await fetch('https://dashboard.linage.app/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value.trim() }),
+      })
+      if (!res.ok) throw new Error()
+      emailInput.style.display = 'none'
+      button.style.display = 'none'
+      note.style.display = 'none'
+      confirmation.style.display = 'block'
+    } catch {
+      errorEl.style.display = 'block'
+      button.disabled = false
+    }
+  })
+}
+
 // --- Dynamic Scanline Injection for Premium Card Sweep Materialization ---
 document.querySelectorAll('.feature-card, .result-card, .price-card').forEach(card => {
   const scanline = document.createElement('div')
@@ -73,6 +105,12 @@ const lenis = new Lenis({
   touchMultiplier: 2,
   infinite: false,
 })
+
+if (document.body.classList.contains('coming-soon-mode')) {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+  window.scrollTo(0, 0)
+  lenis.stop()
+}
 
 // Sync ScrollTrigger and Navbar Toggle/Autohide with Lenis
 const navbar = document.querySelector('.navbar')
@@ -325,18 +363,12 @@ decryptLoader(() => {
       duration: 1,
       ease: "power4.inOut"
     })
-    .from('.hero-title', {
+    .from('.coming-soon-content', {
       y: 30,
       opacity: 0,
       duration: 1.2,
       ease: "power4.out"
     }, "-=0.5")
-    .from('.hero-cta', {
-      y: 40,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power4.out"
-    }, "-=0.8")
 })
 
 
